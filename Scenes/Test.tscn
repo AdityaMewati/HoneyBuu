@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxasty5lv7bh6"]
+
+[ext_resource type="Texture2D" uid="uid://omcauqem86qi" path="res://GFX/background.png" id="1_jsk23"]
+[ext_resource type="Texture2D" uid="uid://kwk328r1hut1" path="res://GFX/pedal.png" id="2_hart1"]
+[ext_resource type="Script" path="res://Assets/Pedal/Pedal.cs" id="3_w0125"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yek5g"]
+size = Vector2(123, 20)
+
+[node name="GameWorld" type="Sprite2D"]
+
+[node name="CoreComponents" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="CoreComponents"]
+texture = ExtResource("1_jsk23")
+
+[node name="Camera2D" type="Camera2D" parent="CoreComponents"]
+position = Vector2(3, 4)
+zoom = Vector2(1.05, 1)
+
+[node name="Pedal" type="CharacterBody2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 343)
+rotation = -1.5708
+script = ExtResource("3_w0125")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pedal"]
+rotation = -1.5708
+texture = ExtResource("2_hart1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pedal"]
+position = Vector2(2, 2)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_yek5g")
